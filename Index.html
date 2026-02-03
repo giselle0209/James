@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You ❤️</title>
+
+  <style>
+    body {
+      background: #ffe6eb;
+      text-align: center;
+      padding: 50px;
+      font-family: Arial;
+    }
+
+    h1 {
+      color: #d6336c;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: none;
+      background: #d6336c;
+      color: white;
+      cursor: pointer;
+    }
+
+p {     
+        font-size: 20px;
+	color: #800080;
+   }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- First screen -->
+  <h1 id="cover">Will you be my Valentine? Click me if yes! 💌</h1>
+
+  <!-- Second screen -->
+  <div id="message1" style="display:none;">
+    <h1>Happy Valentine’s Day Cutie Bear Sweetie Pie 💘</h1>
+    <p>I think about you all the time, and think wow that guy cute 😘</p>
+    <button id="next">Click me! 💘</button>
+  </div>
+
+  <!-- Third screen -->
+  <div id="message2" style="display:none;">
+    <h1>You are my favorite person in the world 😘</h1>
+   <button id="second"> Click me also! 💘</button>
+  </div>
+
+  <!-- Fourth screen -->
+  <div id="message3" style="display:none;">
+    <h1>You're my cute and I love you and I'm excited to keep growing with you 💘</h1>
+  </div>
+
+  <!-- Click logic -->
+  <script>
+    document.getElementById("cover").onclick = function() {
+      document.getElementById("cover").style.display = "none";
+      document.getElementById("message1").style.display = "block";
+    }
+
+    document.getElementById("next").onclick = function() {
+      document.getElementById("message1").style.display = "none";
+      document.getElementById("message2").style.display = "block";
+   }
+    document.getElementById("second").onclick = function() {
+      document.getElementById("message2").style.display = "none";
+      document.getElementById("message3").style.display = "block";
+    }
+
+  </script>
+
+  <!-- Floating hearts -->
+  <script>
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.innerHTML = "💗";
+      heart.style.position = "fixed";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
+      heart.style.fontSize = "50px";
+      heart.style.opacity = "0.8";
+      heart.style.pointerEvents = "none";
+      document.body.appendChild(heart);
+
+      let pos = 100;
+      const float = setInterval(() => {
+        pos -= 1;
+        heart.style.top = pos + "vh";
+        if (pos < -10) {
+          clearInterval(float);
+          heart.remove();
+        }
+      }, 30);
+    }, 600);
+  </script>
+
+</body>
+</html>
